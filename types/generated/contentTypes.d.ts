@@ -369,9 +369,43 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBoostBoost extends Struct.SingleTypeSchema {
+  collectionName: 'boosts';
+  info: {
+    description: '';
+    displayName: 'Boost';
+    pluralName: 'boosts';
+    singularName: 'boost';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BOT_CTA_Text: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    iconText: Schema.Attribute.Component<'icon-text.icon-text', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::boost.boost'> &
+      Schema.Attribute.Private;
+    MainCTA: Schema.Attribute.Component<'main-cta.main-cta', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    sliders: Schema.Attribute.Component<'sliders.sliders', true>;
+    smallText: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+    TopBg: Schema.Attribute.Component<'sliders.sliders', false>;
+    TopBgUrl: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   collectionName: 'footers';
   info: {
+    description: '';
     displayName: 'footer';
     pluralName: 'footers';
     singularName: 'footer';
@@ -910,6 +944,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::boost.boost': ApiBoostBoost;
       'api::footer.footer': ApiFooterFooter;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
