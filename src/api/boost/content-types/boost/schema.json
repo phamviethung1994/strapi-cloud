@@ -1,0 +1,47 @@
+{
+  "kind": "singleType",
+  "collectionName": "boosts",
+  "info": {
+    "singularName": "boost",
+    "pluralName": "boosts",
+    "displayName": "Boost",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "smallText": {
+      "type": "string"
+    },
+    "BOT_CTA_Text": {
+      "type": "string"
+    },
+    "TopBgUrl": {
+      "type": "string"
+    },
+    "iconText": {
+      "type": "component",
+      "repeatable": true,
+      "component": "icon-text.icon-text"
+    },
+    "MainCTA": {
+      "type": "component",
+      "repeatable": true,
+      "component": "main-cta.main-cta"
+    },
+    "sliders": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sliders.sliders"
+    },
+    "TopBg": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sliders.sliders"
+    }
+  }
+}
