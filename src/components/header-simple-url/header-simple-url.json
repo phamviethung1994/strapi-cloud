@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_header_simple_url_header_simple_urls",
+  "info": {
+    "displayName": "Header-Simple-url",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "url": {
+      "type": "text"
+    },
+    "ctaText": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    }
+  }
+}
