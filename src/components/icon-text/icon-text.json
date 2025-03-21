@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_icon_text_icon_texts",
+  "info": {
+    "displayName": "iconText"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "smallText": {
+      "type": "string"
+    },
+    "icon": {
+      "displayName": "icon",
+      "type": "component",
+      "repeatable": false,
+      "component": "icon.icon"
+    }
+  }
+}
