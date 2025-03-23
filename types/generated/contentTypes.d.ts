@@ -420,16 +420,10 @@ export interface ApiBoostBoost extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     MainCTA: Schema.Attribute.Component<'main-cta.main-cta', true>;
     publishedAt: Schema.Attribute.DateTime;
-    sliders: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    sliders: Schema.Attribute.Media<'images' | 'files', true>;
     smallText: Schema.Attribute.String;
     Title: Schema.Attribute.String;
-    TopBg: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    TopBg: Schema.Attribute.Media<'images' | 'files', true>;
     TopBgUrl: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -495,6 +489,38 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
       'api::header.header'
     > &
       Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiLinkTypeLinkType extends Struct.CollectionTypeSchema {
+  collectionName: 'link_types';
+  info: {
+    description: '';
+    displayName: 'LinkType';
+    pluralName: 'link-types';
+    singularName: 'link-type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    DarkIcon: Schema.Attribute.Media<'images' | 'files'>;
+    IsOnTop: Schema.Attribute.Boolean;
+    LightIcon: Schema.Attribute.Media<'images' | 'files'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::link-type.link-type'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1015,6 +1041,7 @@ declare module '@strapi/strapi' {
       'api::boost.boost': ApiBoostBoost;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
+      'api::link-type.link-type': ApiLinkTypeLinkType;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

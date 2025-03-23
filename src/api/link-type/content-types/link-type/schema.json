@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "link_types",
+  "info": {
+    "singularName": "link-type",
+    "pluralName": "link-types",
+    "displayName": "LinkType",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "IsOnTop": {
+      "type": "boolean"
+    },
+    "DarkIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "LightIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  }
+}
