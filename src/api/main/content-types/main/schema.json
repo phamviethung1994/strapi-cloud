@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "mains",
+  "info": {
+    "singularName": "main",
+    "pluralName": "mains",
+    "displayName": "Main",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "sections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "section.section"
+    }
+  }
+}
