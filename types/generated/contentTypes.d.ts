@@ -615,6 +615,7 @@ export interface ApiLockPoolzTermLockPoolzTerm extends Struct.SingleTypeSchema {
 export interface ApiMainMain extends Struct.SingleTypeSchema {
   collectionName: 'mains';
   info: {
+    description: '';
     displayName: 'Main';
     pluralName: 'mains';
     singularName: 'main';
@@ -630,7 +631,7 @@ export interface ApiMainMain extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::main.main'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    sections: Schema.Attribute.Component<'section.section', true>;
+    sections: Schema.Attribute.Component<'section.section', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
