@@ -1,5 +1,18 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface FormatsFormats extends Struct.ComponentSchema {
+  collectionName: 'components_formats_formats';
+  info: {
+    description: '';
+    displayName: 'formats';
+  };
+  attributes: {
+    medium: Schema.Attribute.Component<'img-info.img-info', false>;
+    small: Schema.Attribute.Component<'img-info.img-info', false>;
+    thumbnail: Schema.Attribute.Component<'img-info.img-info', false>;
+  };
+}
+
 export interface HeaderSimpleUrlHeaderSimpleUrl extends Struct.ComponentSchema {
   collectionName: 'components_header_simple_url_header_simple_urls';
   info: {
@@ -36,6 +49,47 @@ export interface IconTextIconText extends Struct.ComponentSchema {
     icon: Schema.Attribute.Media<'images' | 'files'>;
     smallText: Schema.Attribute.String;
     text: Schema.Attribute.String;
+  };
+}
+
+export interface IconIcon extends Struct.ComponentSchema {
+  collectionName: 'components_icon_icons';
+  info: {
+    displayName: 'icon';
+  };
+  attributes: {
+    alternativeText: Schema.Attribute.String;
+    caption: Schema.Attribute.String;
+    ext: Schema.Attribute.String;
+    formats: Schema.Attribute.String;
+    hash: Schema.Attribute.String;
+    height: Schema.Attribute.Integer;
+    mime: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    previewUrl: Schema.Attribute.Text;
+    provider: Schema.Attribute.String;
+    provider_metadata: Schema.Attribute.String;
+    size: Schema.Attribute.Decimal;
+    url: Schema.Attribute.Text;
+    width: Schema.Attribute.Integer;
+  };
+}
+
+export interface ImgInfoImgInfo extends Struct.ComponentSchema {
+  collectionName: 'components_img_info_img_infos';
+  info: {
+    displayName: 'img-info';
+  };
+  attributes: {
+    ext: Schema.Attribute.String;
+    hash: Schema.Attribute.String;
+    height: Schema.Attribute.Integer;
+    mime: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    path: Schema.Attribute.String;
+    size: Schema.Attribute.Decimal;
+    url: Schema.Attribute.Text;
+    width: Schema.Attribute.Integer;
   };
 }
 
@@ -91,15 +145,35 @@ export interface SimpleUrlSimpleUrl extends Struct.ComponentSchema {
   };
 }
 
+export interface SlidersSliders extends Struct.ComponentSchema {
+  collectionName: 'components_sliders_sliders';
+  info: {
+    description: '';
+    displayName: 'sliders';
+  };
+  attributes: {
+    alternativeText: Schema.Attribute.String;
+    caption: Schema.Attribute.String;
+    formats: Schema.Attribute.Component<'formats.formats', true>;
+    height: Schema.Attribute.Integer;
+    name: Schema.Attribute.String;
+    width: Schema.Attribute.Integer;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'formats.formats': FormatsFormats;
       'header-simple-url.header-simple-url': HeaderSimpleUrlHeaderSimpleUrl;
       'html-color-text.html-color-text': HtmlColorTextHtmlColorText;
       'icon-text.icon-text': IconTextIconText;
+      'icon.icon': IconIcon;
+      'img-info.img-info': ImgInfoImgInfo;
       'main-cta.main-cta': MainCtaMainCta;
       'section.section': SectionSection;
       'simple-url.simple-url': SimpleUrlSimpleUrl;
+      'sliders.sliders': SlidersSliders;
     }
   }
 }
