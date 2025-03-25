@@ -471,6 +471,154 @@ export interface ApiBoostBoost extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiBuyPoolzBuyPoolz extends Struct.CollectionTypeSchema {
+  collectionName: 'buy_poolzs';
+  info: {
+    description: '';
+    displayName: 'BuyPoolz';
+    pluralName: 'buy-poolzs';
+    singularName: 'buy-poolz';
+  };
+  options: {
+    draftAndPublish: true;
+    increments: true;
+    timestamps: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Icon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    IsDex: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::buy-poolz.buy-poolz'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    Order: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    URL: Schema.Attribute.String;
+  };
+}
+
+export interface ApiBuyWithBuyWith extends Struct.CollectionTypeSchema {
+  collectionName: 'buy_withs';
+  info: {
+    displayName: 'BuyWith';
+    pluralName: 'buy-withs';
+    singularName: 'buy-with';
+  };
+  options: {
+    draftAndPublish: true;
+    increments: true;
+    timestamps: true;
+  };
+  attributes: {
+    ChainAddresses: Schema.Attribute.Component<
+      'chain-addresses.chain-addresses',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::buy-with.buy-with'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiChainSettingChainSetting
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'chain_settings';
+  info: {
+    description: '';
+    displayName: 'Chain Setting';
+    pluralName: 'chain-settings';
+    singularName: 'chain-setting';
+  };
+  options: {
+    draftAndPublish: true;
+    increments: true;
+    timestamps: true;
+  };
+  attributes: {
+    chainId: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    chainMainCoin: Schema.Attribute.Enumeration<
+      [
+        'ETH',
+        'BTC',
+        'oETH',
+        'BNB',
+        'MATIC',
+        'HECO',
+        'Rinkeby',
+        'BSCTestnet',
+        'Goerli',
+        'Kovan',
+        'Polygon',
+        'PolygonTestnet',
+        'HoubiTestnet',
+        'Avalanche',
+        'AvalancheTestnet',
+        'RopstenTestnet',
+        'FUSE',
+        'Solana',
+        'CKB',
+        'DOT',
+        'GLMR',
+        'ONE',
+        'TOMO',
+        'NEAR',
+        'aETH',
+        'mETH',
+        'Manta',
+        'bETH',
+        'Ton',
+        'OAS',
+        'abETH',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    colorIcon: Schema.Attribute.Component<'color-icon.color-icon', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    DisplayText: Schema.Attribute.String;
+    IsEVM: Schema.Attribute.Boolean;
+    isTest: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::chain-setting.chain-setting'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    scannerTxUrl: Schema.Attribute.String;
+    Show: Schema.Attribute.Boolean;
+    ShowInBoutique: Schema.Attribute.Boolean;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    WhiteLogo: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+  };
+}
+
 export interface ApiConditionCondition extends Struct.SingleTypeSchema {
   collectionName: 'conditions';
   info: {
@@ -1218,6 +1366,9 @@ declare module '@strapi/strapi' {
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::account.account': ApiAccountAccount;
       'api::boost.boost': ApiBoostBoost;
+      'api::buy-poolz.buy-poolz': ApiBuyPoolzBuyPoolz;
+      'api::buy-with.buy-with': ApiBuyWithBuyWith;
+      'api::chain-setting.chain-setting': ApiChainSettingChainSetting;
       'api::condition.condition': ApiConditionCondition;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
