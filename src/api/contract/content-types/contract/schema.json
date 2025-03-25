@@ -4,7 +4,8 @@
   "info": {
     "singularName": "contract",
     "pluralName": "contracts",
-    "displayName": "Contract"
+    "displayName": "Contract",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

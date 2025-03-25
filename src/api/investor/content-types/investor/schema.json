@@ -4,7 +4,8 @@
   "info": {
     "singularName": "investor",
     "pluralName": "investors",
-    "displayName": "Investor"
+    "displayName": "Investor",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "grow",
     "pluralName": "grows",
-    "displayName": "Grows"
+    "displayName": "Grows",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

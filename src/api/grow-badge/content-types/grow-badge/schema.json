@@ -4,7 +4,8 @@
   "info": {
     "singularName": "grow-badge",
     "pluralName": "grow-badges",
-    "displayName": "GrowBadge"
+    "displayName": "GrowBadge",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

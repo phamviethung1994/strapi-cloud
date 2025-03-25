@@ -4,7 +4,8 @@
   "info": {
     "singularName": "buy-with",
     "pluralName": "buy-withs",
-    "displayName": "BuyWith"
+    "displayName": "BuyWith",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

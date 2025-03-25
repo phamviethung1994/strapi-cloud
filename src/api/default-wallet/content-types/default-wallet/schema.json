@@ -4,7 +4,8 @@
   "info": {
     "singularName": "default-wallet",
     "pluralName": "default-wallets",
-    "displayName": "Default Wallet"
+    "displayName": "Default Wallet",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

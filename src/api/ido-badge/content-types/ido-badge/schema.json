@@ -4,7 +4,8 @@
   "info": {
     "singularName": "ido-badge",
     "pluralName": "ido-badges",
-    "displayName": "IdoBadge"
+    "displayName": "IdoBadge",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
