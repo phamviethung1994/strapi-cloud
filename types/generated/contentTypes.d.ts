@@ -505,6 +505,7 @@ export interface ApiBuyPoolzBuyPoolz extends Struct.CollectionTypeSchema {
 export interface ApiBuyWithBuyWith extends Struct.CollectionTypeSchema {
   collectionName: 'buy_withs';
   info: {
+    description: '';
     displayName: 'BuyWith';
     pluralName: 'buy-withs';
     singularName: 'buy-with';
@@ -614,6 +615,7 @@ export interface ApiChainSettingChainSetting
 export interface ApiConditionCondition extends Struct.SingleTypeSchema {
   collectionName: 'conditions';
   info: {
+    description: '';
     displayName: 'Condition';
     pluralName: 'conditions';
     singularName: 'condition';
@@ -642,6 +644,7 @@ export interface ApiConditionCondition extends Struct.SingleTypeSchema {
 export interface ApiContractContract extends Struct.CollectionTypeSchema {
   collectionName: 'contracts';
   info: {
+    description: '';
     displayName: 'Contract';
     pluralName: 'contracts';
     singularName: 'contract';
@@ -678,6 +681,7 @@ export interface ApiDefaultWalletDefaultWallet
   extends Struct.CollectionTypeSchema {
   collectionName: 'default_wallets';
   info: {
+    description: '';
     displayName: 'Default Wallet';
     pluralName: 'default-wallets';
     singularName: 'default-wallet';
@@ -742,6 +746,7 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
 export interface ApiGrowBadgeGrowBadge extends Struct.CollectionTypeSchema {
   collectionName: 'grow_badges';
   info: {
+    description: '';
     displayName: 'GrowBadge';
     pluralName: 'grow-badges';
     singularName: 'grow-badge';
@@ -774,6 +779,7 @@ export interface ApiGrowBadgeGrowBadge extends Struct.CollectionTypeSchema {
 export interface ApiGrowGrow extends Struct.CollectionTypeSchema {
   collectionName: 'grows';
   info: {
+    description: '';
     displayName: 'Grows';
     pluralName: 'grows';
     singularName: 'grow';
@@ -854,6 +860,7 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
 export interface ApiIdoBadgeIdoBadge extends Struct.CollectionTypeSchema {
   collectionName: 'ido_badges';
   info: {
+    description: '';
     displayName: 'IdoBadge';
     pluralName: 'ido-badges';
     singularName: 'ido-badge';
@@ -884,6 +891,7 @@ export interface ApiIdoBadgeIdoBadge extends Struct.CollectionTypeSchema {
 export interface ApiInvestTermInvestTerm extends Struct.SingleTypeSchema {
   collectionName: 'invest_terms';
   info: {
+    description: '';
     displayName: 'Invest terms';
     pluralName: 'invest-terms';
     singularName: 'invest-term';
@@ -912,6 +920,7 @@ export interface ApiInvestTermInvestTerm extends Struct.SingleTypeSchema {
 export interface ApiInvestorInvestor extends Struct.CollectionTypeSchema {
   collectionName: 'investors';
   info: {
+    description: '';
     displayName: 'Investor';
     pluralName: 'investors';
     singularName: 'investor';
@@ -973,6 +982,7 @@ export interface ApiLinkTypeLinkType extends Struct.CollectionTypeSchema {
 export interface ApiLockPoolzTermLockPoolzTerm extends Struct.SingleTypeSchema {
   collectionName: 'lock_poolz_terms';
   info: {
+    description: '';
     displayName: 'Lock Poolz Terms';
     pluralName: 'lock-poolz-terms';
     singularName: 'lock-poolz-term';
@@ -1027,6 +1037,7 @@ export interface ApiMainMain extends Struct.SingleTypeSchema {
 export interface ApiPrivacyPrivacy extends Struct.SingleTypeSchema {
   collectionName: 'privacies';
   info: {
+    description: '';
     displayName: 'Privacy';
     pluralName: 'privacies';
     singularName: 'privacy';
