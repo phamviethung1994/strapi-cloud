@@ -387,7 +387,7 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     htmlColorText: Schema.Attribute.Component<
       'html-color-text.html-color-text',
-      false
+      true
     >;
     iconText: Schema.Attribute.Component<'icon-text.icon-text', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
