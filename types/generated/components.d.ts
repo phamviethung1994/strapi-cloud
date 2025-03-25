@@ -1,5 +1,35 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ChainAddressesChainAddresses extends Struct.ComponentSchema {
+  collectionName: 'components_chain_addresses_chain_addresses';
+  info: {
+    description: '';
+    displayName: 'address on chain';
+    icon: 'address-card';
+    name: 'ChainAddresses';
+  };
+  attributes: {
+    Address: Schema.Attribute.String & Schema.Attribute.Required;
+    chain_setting: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::chain-setting.chain-setting'
+    >;
+  };
+}
+
+export interface ColorIconColorIcon extends Struct.ComponentSchema {
+  collectionName: 'components_color_icon_color_icons';
+  info: {
+    description: '';
+    displayName: 'colorIcon';
+  };
+  attributes: {
+    Color: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    icon: Schema.Attribute.Media<'images' | 'files'>;
+  };
+}
+
 export interface HeaderSimpleUrlHeaderSimpleUrl extends Struct.ComponentSchema {
   collectionName: 'components_header_simple_url_header_simple_urls';
   info: {
@@ -72,7 +102,7 @@ export interface SectionSection extends Struct.ComponentSchema {
       false
     >;
     MainCTA: Schema.Attribute.Component<'main-cta.main-cta', true>;
-    secondCta: Schema.Attribute.Component<'main-cta.main-cta', false>;
+    secondCta: Schema.Attribute.Component<'main-cta.main-cta', true>;
     SecondSmallText: Schema.Attribute.String;
     secondTitle: Schema.Attribute.String;
     smallText: Schema.Attribute.Text;
@@ -98,6 +128,8 @@ export interface SimpleUrlSimpleUrl extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'chain-addresses.chain-addresses': ChainAddressesChainAddresses;
+      'color-icon.color-icon': ColorIconColorIcon;
       'header-simple-url.header-simple-url': HeaderSimpleUrlHeaderSimpleUrl;
       'html-color-text.html-color-text': HtmlColorTextHtmlColorText;
       'icon-text.icon-text': IconTextIconText;

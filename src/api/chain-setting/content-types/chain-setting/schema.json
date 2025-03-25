@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chain_settings",
+  "info": {
+    "singularName": "chain-setting",
+    "pluralName": "chain-settings",
+    "displayName": "Chain Setting",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "IsEVM": {
+      "type": "boolean"
+    },
+    "DisplayText": {
+      "type": "string"
+    },
+    "WhiteLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "pluginOptions": {}
+    },
+    "Show": {
+      "type": "boolean"
+    },
+    "colorIcon": {
+      "type": "component",
+      "repeatable": false,
+      "component": "color-icon.color-icon"
+    },
+    "ShowInBoutique": {
+      "type": "boolean"
+    },
+    "scannerTxUrl": {
+      "type": "string"
+    },
+    "chain": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::chain.chain",
+      "inversedBy": "chain_setting"
+    }
+  }
+}

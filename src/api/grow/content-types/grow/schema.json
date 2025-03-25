@@ -1,0 +1,103 @@
+{
+  "kind": "collectionType",
+  "collectionName": "grows",
+  "info": {
+    "singularName": "grow",
+    "pluralName": "grows",
+    "displayName": "Grows",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "reward": {
+      "type": "enumeration",
+      "enum": [
+        "Token",
+        "Whitelist",
+        "Stable",
+        "NFT",
+        "IDO_Token"
+      ],
+      "required": true
+    },
+    "text": {
+      "type": "text"
+    },
+    "mainIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "pluginOptions": {}
+    },
+    "projectName": {
+      "type": "string"
+    },
+    "participants": {
+      "type": "integer"
+    },
+    "mainPicture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "pluginOptions": {}
+    },
+    "startTime": {
+      "type": "datetime"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "data_ccode": {
+      "type": "string"
+    },
+    "DescriptionMainText": {
+      "type": "text"
+    },
+    "DescriptionSubText": {
+      "type": "text"
+    },
+    "finishTime": {
+      "type": "datetime"
+    },
+    "Banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "pluginOptions": {}
+    },
+    "BannerUrl": {
+      "type": "string"
+    },
+    "BannerText": {
+      "type": "text"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "showInMainBanner": {
+      "type": "boolean"
+    },
+    "Show": {
+      "type": "boolean"
+    },
+    "grow_badge": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::grow-badge.grow-badge"
+    }
+  }
+}

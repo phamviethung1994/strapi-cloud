@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "grow_badges",
+  "info": {
+    "singularName": "grow-badge",
+    "pluralName": "grow-badges",
+    "displayName": "GrowBadge",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "BackgroundColor": {
+      "type": "string"
+    },
+    "TooltipText": {
+      "type": "text"
+    },
+    "Color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    }
+  }
+}
