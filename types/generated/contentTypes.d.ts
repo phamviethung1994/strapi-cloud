@@ -1316,6 +1316,67 @@ export interface ApiPrivacyPrivacy extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiProjectsInformationProjectsInformation
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'projects_informations';
+  info: {
+    displayName: 'ProjectsInformation';
+    pluralName: 'projects-informations';
+    singularName: 'projects-information';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ATHROI: Schema.Attribute.Decimal;
+    Block: Schema.Attribute.Media<'images'>;
+    blockLocations: Schema.Attribute.String;
+    chain_setting: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::chain-setting.chain-setting'
+    >;
+    coingeckoKey: Schema.Attribute.String;
+    coinmarketcapKey: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    CryptorankKey: Schema.Attribute.String;
+    FinishTime: Schema.Attribute.DateTime;
+    FullTokenDistribution: Schema.Attribute.Component<
+      'full-token-distribution.full-token-distribution',
+      false
+    >;
+    ido_badge: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::ido-badge.ido-badge'
+    >;
+    Investors: Schema.Attribute.Component<'investors.investors', true>;
+    IsShow: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    IsTimeTBA: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::projects-information.projects-information'
+    > &
+      Schema.Attribute.Private;
+    Logo: Schema.Attribute.Media<'images'>;
+    MainListShow: Schema.Attribute.Boolean;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
+    Original: Schema.Attribute.Component<'synthetic-zone.syntetic', false>;
+    PoolzBackId: Schema.Attribute.BigInteger;
+    publishedAt: Schema.Attribute.DateTime;
+    StartTime: Schema.Attribute.DateTime;
+    Syntetic: Schema.Attribute.Component<'synthetic-zone.syntetic', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    UploadPool: Schema.Attribute.Component<'upload-pool.upload-pool', false>;
+    VisualText: Schema.Attribute.Component<'visual-text.visual-text', false>;
+    Warning_Text: Schema.Attribute.Text;
+    WhitelistId: Schema.Attribute.BigInteger;
+  };
+}
+
 export interface ApiStakingCoolDownStakingCoolDown
   extends Struct.CollectionTypeSchema {
   collectionName: 'staking_cool_downs';
@@ -1915,6 +1976,7 @@ declare module '@strapi/strapi' {
       'api::page-info.page-info': ApiPageInfoPageInfo;
       'api::poolz-boutique.poolz-boutique': ApiPoolzBoutiquePoolzBoutique;
       'api::privacy.privacy': ApiPrivacyPrivacy;
+      'api::projects-information.projects-information': ApiProjectsInformationProjectsInformation;
       'api::staking-cool-down.staking-cool-down': ApiStakingCoolDownStakingCoolDown;
       'api::vault-faq.vault-faq': ApiVaultFaqVaultFaq;
       'plugin::content-releases.release': PluginContentReleasesRelease;
