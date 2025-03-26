@@ -4,11 +4,12 @@ export interface ChainAddressesChainAddresses extends Struct.ComponentSchema {
   collectionName: 'components_chain_addresses_chain_addresses';
   info: {
     description: '';
+    displayName: 'address on chain';
     icon: 'address-card';
     name: 'ChainAddresses';
   };
   attributes: {
-    Address: Schema.Attribute.String;
+    Address: Schema.Attribute.String & Schema.Attribute.Required;
     chain_setting: Schema.Attribute.Relation<
       'oneToOne',
       'api::chain-setting.chain-setting'
@@ -23,8 +24,9 @@ export interface ColorIconColorIcon extends Struct.ComponentSchema {
     displayName: 'colorIcon';
   };
   attributes: {
-    ColorCode: Schema.Attribute.String;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    Color: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    icon: Schema.Attribute.Media<'images' | 'files'>;
   };
 }
 
@@ -100,7 +102,7 @@ export interface SectionSection extends Struct.ComponentSchema {
       false
     >;
     MainCTA: Schema.Attribute.Component<'main-cta.main-cta', true>;
-    secondCta: Schema.Attribute.Component<'main-cta.main-cta', false>;
+    secondCta: Schema.Attribute.Component<'main-cta.main-cta', true>;
     SecondSmallText: Schema.Attribute.String;
     secondTitle: Schema.Attribute.String;
     smallText: Schema.Attribute.Text;
