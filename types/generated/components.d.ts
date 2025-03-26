@@ -30,6 +30,18 @@ export interface ColorIconColorIcon extends Struct.ComponentSchema {
   };
 }
 
+export interface DictionaryLinks extends Struct.ComponentSchema {
+  collectionName: 'components_dictionary_links';
+  info: {
+    description: '';
+    displayName: 'Dictionary-Links';
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface HeaderSimpleUrlHeaderSimpleUrl extends Struct.ComponentSchema {
   collectionName: 'components_header_simple_url_header_simple_urls';
   info: {
@@ -130,6 +142,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'chain-addresses.chain-addresses': ChainAddressesChainAddresses;
       'color-icon.color-icon': ColorIconColorIcon;
+      'dictionary.links': DictionaryLinks;
       'header-simple-url.header-simple-url': HeaderSimpleUrlHeaderSimpleUrl;
       'html-color-text.html-color-text': HtmlColorTextHtmlColorText;
       'icon-text.icon-text': IconTextIconText;
