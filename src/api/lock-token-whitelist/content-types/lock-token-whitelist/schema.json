@@ -28,14 +28,9 @@
     },
     "chain_settings": {
       "type": "relation",
-<<<<<<< HEAD
-      "relation": "manyToMany",
-      "target": "api::chain-setting.chain-setting"
-=======
       "relation": "oneToMany",
       "target": "api::chain-setting.chain-setting",
       "mappedBy": "lock_token_whitelist"
->>>>>>> upstream/main
     }
   }
 }

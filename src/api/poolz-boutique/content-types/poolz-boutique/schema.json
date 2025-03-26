@@ -42,21 +42,10 @@
     "Discord": {
       "type": "string"
     },
-<<<<<<< HEAD
-    "R": {
-      "type": "integer"
-    },
-    "G": {
-      "type": "integer"
-    },
-    "B": {
-      "type": "integer"
-=======
     "Color": {
       "type": "customField",
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
       "customField": "plugin::color-picker.color"
->>>>>>> upstream/main
     }
   }
 }
