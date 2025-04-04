@@ -7,10 +7,12 @@
   "options": {},
   "attributes": {
     "text": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "url": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "ctaText": {
       "type": "string"
@@ -18,12 +20,9 @@
     "addText": {
       "type": "string"
     },
-    "flag": {
-      "type": "string"
-    },
     "backColor": {
       "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "regex": "^(#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})|TRANSPARENT)$",
       "customField": "plugin::color-picker.color"
     },
     "TextColor": {
@@ -35,6 +34,10 @@
       "type": "customField",
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
       "customField": "plugin::color-picker.color"
+    },
+    "flag": {
+      "type": "boolean",
+      "required": true
     }
   }
 }
