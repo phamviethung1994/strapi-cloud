@@ -1155,7 +1155,7 @@ export interface ApiLockTokenWhitelistLockTokenWhitelist
   attributes: {
     Address: Schema.Attribute.String;
     chain_settings: Schema.Attribute.Relation<
-      'oneToMany',
+      'manyToMany',
       'api::chain-setting.chain-setting'
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -1464,7 +1464,7 @@ export interface ApiProjectsInformationProjectsInformation
     singularName: 'projects-information';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     ATHROI: Schema.Attribute.Decimal;
