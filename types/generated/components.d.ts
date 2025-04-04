@@ -98,10 +98,10 @@ export interface HeaderSimpleUrlHeaderSimpleUrl extends Struct.ComponentSchema {
   };
   attributes: {
     ctaText: Schema.Attribute.String;
-    text: Schema.Attribute.String;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
     textColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
-    url: Schema.Attribute.Text;
+    url: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
@@ -164,10 +164,10 @@ export interface MainCtaMainCta extends Struct.ComponentSchema {
     flag: Schema.Attribute.String;
     hoverBackColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
-    text: Schema.Attribute.String;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
     TextColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
-    url: Schema.Attribute.Text;
+    url: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
