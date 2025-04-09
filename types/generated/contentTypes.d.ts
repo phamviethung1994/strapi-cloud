@@ -410,6 +410,7 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
 export interface ApiAccountAccount extends Struct.SingleTypeSchema {
   collectionName: 'accounts';
   info: {
+    description: '';
     displayName: 'Account';
     pluralName: 'accounts';
     singularName: 'account';
@@ -428,8 +429,8 @@ export interface ApiAccountAccount extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    smallText: Schema.Attribute.Text;
-    Title: Schema.Attribute.String;
+    smallText: Schema.Attribute.Text & Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -789,16 +790,17 @@ export interface ApiDefaultWalletDefaultWallet
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Icon: Schema.Attribute.Media<'images' | 'files'>;
-    Link: Schema.Attribute.String;
+    Icon: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    Link: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::default-wallet.default-wallet'
     > &
       Schema.Attribute.Private;
-    Name: Schema.Attribute.String;
-    order: Schema.Attribute.Integer;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1270,6 +1272,7 @@ export interface ApiMediaKitMediaKit extends Struct.CollectionTypeSchema {
 export interface ApiNonEvmChainNonEvmChain extends Struct.CollectionTypeSchema {
   collectionName: 'non_evm_chains';
   info: {
+    description: '';
     displayName: 'Non Evm Chain';
     pluralName: 'non-evm-chains';
     singularName: 'non-evm-chain';
@@ -1281,8 +1284,9 @@ export interface ApiNonEvmChainNonEvmChain extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    DisplayText: Schema.Attribute.String;
-    Icon: Schema.Attribute.Media<'images' | 'files'>;
+    DisplayText: Schema.Attribute.String & Schema.Attribute.Required;
+    Icon: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1290,7 +1294,7 @@ export interface ApiNonEvmChainNonEvmChain extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Regex: Schema.Attribute.String;
+    Regex: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1360,6 +1364,7 @@ export interface ApiOurPartnerOurPartner extends Struct.CollectionTypeSchema {
 export interface ApiPageInfoPageInfo extends Struct.CollectionTypeSchema {
   collectionName: 'page_infos';
   info: {
+    description: '';
     displayName: 'PageInfo';
     pluralName: 'page-infos';
     singularName: 'page-info';
@@ -1382,7 +1387,7 @@ export interface ApiPageInfoPageInfo extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Title: Schema.Attribute.String;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1553,6 +1558,7 @@ export interface ApiStakingCoolDownStakingCoolDown
 export interface ApiVaultFaqVaultFaq extends Struct.CollectionTypeSchema {
   collectionName: 'vault_faqs';
   info: {
+    description: '';
     displayName: 'VaultFAQ';
     pluralName: 'vault-faqs';
     singularName: 'vault-faq';
@@ -1570,9 +1576,9 @@ export interface ApiVaultFaqVaultFaq extends Struct.CollectionTypeSchema {
       'api::vault-faq.vault-faq'
     > &
       Schema.Attribute.Private;
-    LongText: Schema.Attribute.Text;
+    LongText: Schema.Attribute.Text & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    ShortText: Schema.Attribute.String;
+    ShortText: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
