@@ -858,7 +858,8 @@ export interface ApiGrowBadgeGrowBadge extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    BackgroundColor: Schema.Attribute.String;
+    BackgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     Color: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     createdAt: Schema.Attribute.DateTime;
