@@ -646,6 +646,7 @@ export interface ApiContractTypeContractType
   extends Struct.CollectionTypeSchema {
   collectionName: 'contract_types';
   info: {
+    description: '';
     displayName: 'Contract Type';
     pluralName: 'contract-types';
     singularName: 'contract-type';
@@ -658,12 +659,14 @@ export interface ApiContractTypeContractType
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    isUpgradable: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::contract-type.contract-type'
     > &
       Schema.Attribute.Private;
+    order: Schema.Attribute.Integer & Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -752,6 +755,7 @@ export interface ApiContractsOnChainContractsOnChain
 export interface ApiCoverCover extends Struct.CollectionTypeSchema {
   collectionName: 'covers';
   info: {
+    description: '';
     displayName: 'Cover';
     pluralName: 'covers';
     singularName: 'cover';
@@ -766,7 +770,8 @@ export interface ApiCoverCover extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::cover.cover'> &
       Schema.Attribute.Private;
-    picture: Schema.Attribute.Media<'images' | 'files'>;
+    picture: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -975,19 +980,20 @@ export interface ApiIdoBadgeIdoBadge extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Color: Schema.Attribute.String &
+    ColorCode: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    ExplainText: Schema.Attribute.Text;
+    ExplainText: Schema.Attribute.Text & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::ido-badge.ido-badge'
     > &
       Schema.Attribute.Private;
-    Name: Schema.Attribute.String;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1099,7 +1105,9 @@ export interface ApiLinkTypeLinkType extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     DarkIcon: Schema.Attribute.Media<'images' | 'files'>;
-    IsOnTop: Schema.Attribute.Boolean;
+    IsOnTop: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     LightIcon: Schema.Attribute.Media<'images' | 'files'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -1107,7 +1115,7 @@ export interface ApiLinkTypeLinkType extends Struct.CollectionTypeSchema {
       'api::link-type.link-type'
     > &
       Schema.Attribute.Private;
-    Name: Schema.Attribute.String;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1157,7 +1165,7 @@ export interface ApiLockTokenWhitelistLockTokenWhitelist
     draftAndPublish: true;
   };
   attributes: {
-    Address: Schema.Attribute.String;
+    Address: Schema.Attribute.String & Schema.Attribute.Required;
     chain_settings: Schema.Attribute.Relation<
       'manyToMany',
       'api::chain-setting.chain-setting'
@@ -1171,11 +1179,12 @@ export interface ApiLockTokenWhitelistLockTokenWhitelist
       'api::lock-token-whitelist.lock-token-whitelist'
     > &
       Schema.Attribute.Private;
-    Name: Schema.Attribute.String;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     Type: Schema.Attribute.Enumeration<
       ['OriginalToken', 'Envelope', 'Synthetic', 'LockDealNFT']
-    >;
+    > &
+      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1467,6 +1476,7 @@ export interface ApiProjectsInformationProjectsInformation
   extends Struct.CollectionTypeSchema {
   collectionName: 'projects_informations';
   info: {
+    description: '';
     displayName: 'ProjectsInformation';
     pluralName: 'projects-informations';
     singularName: 'projects-information';
@@ -1510,7 +1520,9 @@ export interface ApiProjectsInformationProjectsInformation
     MainListShow: Schema.Attribute.Boolean;
     Name: Schema.Attribute.String & Schema.Attribute.Required;
     Original: Schema.Attribute.Component<'synthetic-zone.syntetic', false>;
-    PoolzBackId: Schema.Attribute.BigInteger;
+    PoolzBackId: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
     publishedAt: Schema.Attribute.DateTime;
     StartTime: Schema.Attribute.DateTime;
     Syntetic: Schema.Attribute.Component<'synthetic-zone.syntetic', false>;
@@ -1520,7 +1532,9 @@ export interface ApiProjectsInformationProjectsInformation
     UploadPool: Schema.Attribute.Component<'upload-pool.upload-pool', false>;
     VisualText: Schema.Attribute.Component<'visual-text.visual-text', false>;
     Warning_Text: Schema.Attribute.Text;
-    WhitelistId: Schema.Attribute.BigInteger;
+    WhitelistId: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
   };
 }
 

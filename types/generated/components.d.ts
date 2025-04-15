@@ -106,10 +106,11 @@ export interface HeaderSimpleUrlHeaderSimpleUrl extends Struct.ComponentSchema {
 export interface HighlightsHighlights extends Struct.ComponentSchema {
   collectionName: 'components_highlights_highlights';
   info: {
+    description: '';
     displayName: 'Highlights';
   };
   attributes: {
-    Value: Schema.Attribute.Text;
+    Value: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
@@ -140,11 +141,12 @@ export interface IconTextIconText extends Struct.ComponentSchema {
 export interface InvestorsInvestors extends Struct.ComponentSchema {
   collectionName: 'components_investors_investors';
   info: {
+    description: '';
     displayName: 'Investors';
   };
   attributes: {
     Category: Schema.Attribute.String;
-    investor: Schema.Attribute.Relation<'manyToMany', 'api::investor.investor'>;
+    investor: Schema.Attribute.Relation<'oneToOne', 'api::investor.investor'>;
   };
 }
 
@@ -172,11 +174,12 @@ export interface MainCtaMainCta extends Struct.ComponentSchema {
 export interface OverviewOverview extends Struct.ComponentSchema {
   collectionName: 'components_overview_overviews';
   info: {
+    description: '';
     displayName: 'Overview';
   };
   attributes: {
     BoldText: Schema.Attribute.Text;
-    Name: Schema.Attribute.String;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
     Text: Schema.Attribute.Text;
   };
 }
@@ -222,6 +225,7 @@ export interface SimpleUrlSimpleUrl extends Struct.ComponentSchema {
 export interface SmartLinksSmartLinks extends Struct.ComponentSchema {
   collectionName: 'components_smart_links_smart_links';
   info: {
+    description: '';
     displayName: 'SmartLinks';
   };
   attributes: {
@@ -229,7 +233,7 @@ export interface SmartLinksSmartLinks extends Struct.ComponentSchema {
       'oneToOne',
       'api::link-type.link-type'
     >;
-    URL: Schema.Attribute.String;
+    URL: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
