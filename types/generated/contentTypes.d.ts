@@ -437,6 +437,206 @@ export interface ApiAccountAccount extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAuthAdministratorAuthAdministrator
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'auth_administrators';
+  info: {
+    description: '';
+    displayName: 'Auth Administrators';
+    pluralName: 'auth-administrators';
+    singularName: 'auth-administrator';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::auth-administrator.auth-administrator'
+    > &
+      Schema.Attribute.Private;
+    Note: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Private &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Wallet: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 42;
+        minLength: 42;
+      }>;
+  };
+}
+
+export interface ApiAuthAdministratorsResourceAuthAdministratorsResource
+  extends Struct.SingleTypeSchema {
+  collectionName: 'auth_administrators_resources';
+  info: {
+    displayName: 'Auth Administrators Resources';
+    pluralName: 'auth-administrators-resources';
+    singularName: 'auth-administrators-resource';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::auth-administrators-resource.auth-administrators-resource'
+    > &
+      Schema.Attribute.Private;
+    OnlyAdminResources: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::auth-resource.auth-resource'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAuthResourceAuthResource
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'auth_resources';
+  info: {
+    description: '';
+    displayName: 'Auth Resources';
+    pluralName: 'auth-resources';
+    singularName: 'auth-resource';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::auth-resource.auth-resource'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    RoleIDs: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::auth-role.auth-role'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAuthRoleAuthRole extends Struct.CollectionTypeSchema {
+  collectionName: 'auth_roles';
+  info: {
+    description: '';
+    displayName: 'Auth Roles';
+    pluralName: 'auth-roles';
+    singularName: 'auth-role';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::auth-role.auth-role'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    ResourceIDs: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::auth-resource.auth-resource'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    UserIDs: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::auth-user.auth-user'
+    >;
+  };
+}
+
+export interface ApiAuthUserAuthUser extends Struct.CollectionTypeSchema {
+  collectionName: 'auth_users';
+  info: {
+    description: '';
+    displayName: 'Auth Users';
+    pluralName: 'auth-users';
+    singularName: 'auth-user';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::auth-user.auth-user'
+    > &
+      Schema.Attribute.Private;
+    Note: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Private &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    RoleIDs: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::auth-role.auth-role'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Wallet: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 42;
+        minLength: 42;
+      }>;
+  };
+}
+
 export interface ApiBoostBoost extends Struct.SingleTypeSchema {
   collectionName: 'boosts';
   info: {
@@ -2117,6 +2317,11 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::account.account': ApiAccountAccount;
+      'api::auth-administrator.auth-administrator': ApiAuthAdministratorAuthAdministrator;
+      'api::auth-administrators-resource.auth-administrators-resource': ApiAuthAdministratorsResourceAuthAdministratorsResource;
+      'api::auth-resource.auth-resource': ApiAuthResourceAuthResource;
+      'api::auth-role.auth-role': ApiAuthRoleAuthRole;
+      'api::auth-user.auth-user': ApiAuthUserAuthUser;
       'api::boost.boost': ApiBoostBoost;
       'api::buy-poolz.buy-poolz': ApiBuyPoolzBuyPoolz;
       'api::buy-with.buy-with': ApiBuyWithBuyWith;

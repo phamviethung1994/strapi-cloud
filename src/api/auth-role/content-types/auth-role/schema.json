@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "auth_roles",
+  "info": {
+    "singularName": "auth-role",
+    "pluralName": "auth-roles",
+    "displayName": "Auth Roles",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 256
+    },
+    "UserIDs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::auth-user.auth-user",
+      "mappedBy": "RoleIDs"
+    },
+    "ResourceIDs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::auth-resource.auth-resource",
+      "inversedBy": "RoleIDs"
+    }
+  }
+}
