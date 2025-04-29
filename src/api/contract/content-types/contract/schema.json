@@ -30,6 +30,11 @@
     },
     "GitLink": {
       "type": "string"
+    },
+    "CompilerSetting": {
+      "type": "component",
+      "repeatable": false,
+      "component": "compiler-setting.compiler-settings"
     }
   }
 }
