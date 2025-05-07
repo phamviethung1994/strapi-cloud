@@ -30,6 +30,29 @@ export interface ColorIconColorIcon extends Struct.ComponentSchema {
   };
 }
 
+export interface CompilerSettingCompilerSettings
+  extends Struct.ComponentSchema {
+  collectionName: 'components_compiler_setting_compiler_settings';
+  info: {
+    description: '';
+    displayName: 'Compiler settings';
+    icon: 'gate';
+  };
+  attributes: {
+    evm_version: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::evm-version.evm-version'
+    >;
+    optimizerEnabled: Schema.Attribute.Boolean;
+    runs: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<200>;
+    supported_pragma_version: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::pragma-version.pragma-version'
+    >;
+    viaIR: Schema.Attribute.Boolean;
+  };
+}
+
 export interface ContractOnChainContractOnChain extends Struct.ComponentSchema {
   collectionName: 'components_contract_on_chain_contract_on_chains';
   info: {
@@ -268,6 +291,7 @@ export interface TokenDistributionTokenDistribution
 export interface TokenomicsTokenomics extends Struct.ComponentSchema {
   collectionName: 'components_tokenomics_tokenomics';
   info: {
+    description: '';
     displayName: 'Tokenomics';
   };
   attributes: {
@@ -275,6 +299,7 @@ export interface TokenomicsTokenomics extends Struct.ComponentSchema {
     MarketCap: Schema.Attribute.String;
     Symbol: Schema.Attribute.String;
     TGEMarketCap: Schema.Attribute.String;
+    TokenPrice: Schema.Attribute.String;
     TotalRaise: Schema.Attribute.String;
     TotalSupply: Schema.Attribute.String;
     USDPrice: Schema.Attribute.Decimal;
@@ -334,6 +359,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'chain-addresses.chain-addresses': ChainAddressesChainAddresses;
       'color-icon.color-icon': ColorIconColorIcon;
+      'compiler-setting.compiler-settings': CompilerSettingCompilerSettings;
       'contract-on-chain.contract-on-chain': ContractOnChainContractOnChain;
       'dictionary.links': DictionaryLinks;
       'full-token-distribution.full-token-distribution': FullTokenDistributionFullTokenDistribution;
